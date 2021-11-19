@@ -29,6 +29,8 @@ let subScroll = new scroll.Scroller([
     ],
 ])
 
+let numberScroll = new scroll.NumberScroller(1)
+
 new scroll.Scroller([
     [
         (function () {
@@ -41,7 +43,7 @@ new scroll.Scroller([
             `)
         }),
         (function () {
-            basic.showString("+++");
+            basic.showNumber(numberScroll.start());
         })
     ],
     [
