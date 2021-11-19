@@ -91,4 +91,26 @@ namespace scroll {
             }
         }
     }
+    export function booleanScroll() {
+        let returnValue = false
+        new scroll.Scroller([
+            [
+                (function () {
+                    basic.showIcon(IconNames.Yes)
+                }),
+                (function () {
+                    returnValue = true
+                })
+            ],
+            [
+                (function () {
+                    basic.showIcon(IconNames.No)
+                }),
+                (function () {
+                    returnValue = false
+                })
+            ],
+        ]).start(true)
+        return returnValue
+    }
 }

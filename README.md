@@ -81,7 +81,7 @@ new scroll.Scroller([
             `)
         }),
         (function () {
-            basic.showString("---");
+            basic.showString(scroll.booleanScroll().toString());
         })
     ],
     [
