@@ -55,13 +55,15 @@ namespace scroll {
     export class NumberScroller {
         interval: number;
         ID: int16;
-        constructor(interval: number) {
+        CurrentPage: number;
+        constructor(interval: number,initV: number = 0) {
             this.interval = interval
             this.ID = randint(0, 100)
+            this.CurrentPage = initV
             console.log("init number scroll element interval " + interval.toString())
         }
-        CurrentPage: number = 0;
-        start() {
+        start(initV: number = 0) {
+            this.CurrentPage = initV
             console.log("Start number scroll element " + this.ID.toString())
             while (true) {
                 basic.showNumber(this.CurrentPage)
