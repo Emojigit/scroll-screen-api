@@ -1,5 +1,6 @@
 {
     "name": "Scroll Screen API",
+    "version": "1.0.0",
     "description": "",
     "dependencies": {
         "core": "*"
