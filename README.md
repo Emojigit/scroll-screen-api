@@ -18,14 +18,83 @@ To edit this repository in MakeCode.
 * click on **Import** then click on **Import URL**
 * paste **https://github.com/emojigit/scroll-screen-api** and click import
 
-## Blocks preview
+## API
+The class `scroll.Scroller` is the basic class of this extension. When calling it, provide an array with arrays contains pre and post functions incide. See the following example:
 
-This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
+```js
+let subScroll = new scroll.Scroller([
+    [
+        (function () {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                # # # # #
+                . . # . .
+                . . # . .
+            `)
+        }),
+        (function () {
+            basic.showString("+++");
+        })
+    ],
+    [
+        (function () {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                # # # # #
+                . . . . .
+                . . . . .
+            `)
+        }),
+        (function () {
+            basic.showString("---");
+        })
+    ],
+])
 
-![A rendered view of the blocks](https://github.com/emojigit/scroll-screen-api/raw/master/.github/makecode/blocks.png)
-
-#### Metadata (used for search, rendering)
-
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+new scroll.Scroller([
+    [
+        (function () {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                # # # # #
+                . . # . .
+                . . # . .
+            `)
+        }),
+        (function () {
+            basic.showString("+++");
+        })
+    ],
+    [
+        (function () {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                # # # # #
+                . . . . .
+                . . . . .
+            `)
+        }),
+        (function () {
+            basic.showString("---");
+        })
+    ],
+    [
+        (function () {
+            basic.showLeds(`
+                # . . . #
+                . . . . .
+                . . # . .
+                . . . . .
+                # . . . #
+            `)
+        }),
+        (function () {
+            subScroll.start(true);
+        })
+    ],
+]).start()
+```
